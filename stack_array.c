@@ -5,40 +5,40 @@
 
 typedef int element;
 
-element stack[STACK_SIZE]; //1 ì°¨ì› ë°°ì—´ ìŠ¤íƒ ì„ ì–¸
+element stack[STACK_SIZE]; //1 Â÷¿ø ¹è¿­ ½ºÅÃ ¼±¾ğ
 int top =-1;
 
-//ìŠ¤íƒì´ ê³µë°±ì¸ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
+//½ºÅÃÀÌ °ø¹éÀÎÁö È®ÀÎÇÏ´Â ÇÔ¼ö
 static int isEmpty(){
-    if(top==-1){
+    if(top==-1){ // ½ºÅÃ ºñ¾î ÀÖÀ½
         return 1;
     }else{
         return 0;
     }
 }
 
-//ìŠ¤íƒì´ í¬í™” ìƒíƒœì¸ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜ 
+//½ºÅÃÀÌ Æ÷È­ »óÅÂÀÎÁö È®ÀÎÇÏ´Â ÇÔ¼ö 
 static int isFull(){
-    if(top==STACK_SIZE-1){
+    if(top==STACK_SIZE-1){ //¹è¿­ ÀÎµ¦½º 0~99±îÁö 100°³ ÀÌ¹Ç·Î
         return 1;
     }else{
         return 0;
     }
 }
 
-// ìŠ¤íƒì˜ topì— ì›ì†Œ ì‚½ì…í•˜ëŠ” í•¨ìˆ˜
+// ½ºÅÃÀÇ top¿¡ ¿ø¼Ò »ğÀÔÇÏ´Â ÇÔ¼ö
 static void push(element item){
-    if(isFull()){// ìŠ¤íƒì´ í¬í™” ìƒíƒœì¸ ê²½ìš°
+    if(isFull()){// ½ºÅÃÀÌ Æ÷È­ »óÅÂÀÎ °æ¿ì
         printf("\n\n stack is full\n");
         return;
-    }else{//ì—¬ìœ ê°€ ìˆìœ¼ë©´ 
-        stack[++top]=item; //topì„ ì¦ê°€ì‹œí‚¨ í›„ í˜„ì¬ topì— ì›ì†Œ ì‚½ì…
+    }else{//¿©À¯°¡ ÀÖÀ¸¸é 
+        stack[++top]=item; //topÀ» Áõ°¡½ÃÅ² ÈÄ ÇöÀç top¿¡ ¿ø¼Ò »ğÀÔ
     }
 }
 
-//ìŠ¤íƒì˜ topì—ì„œ ì›ì†Œë¥¼ ì‚­ì œí•˜ëŠ” ì—°ì‚°
+//½ºÅÃÀÇ top¿¡¼­ ¿ø¼Ò¸¦ »èÁ¦ÇÏ´Â ¿¬»ê
 static element pop(){
-    if(isEmpty()){
+    if(isEmpty()){//½ºÅÃ ºñ¾î ÀÖÀ½
         printf("\n\n stack is empty\n");
         return 0;
     }else{
@@ -46,17 +46,17 @@ static element pop(){
     }
 }
 
-//ìŠ¤íƒì˜ top ì›ì†Œë¥¼ ê²€ìƒ‰í•˜ëŠ” í•¨ìˆ˜
+//½ºÅÃÀÇ top ¿ø¼Ò¸¦ °Ë»öÇÏ´Â ÇÔ¼ö
 static element peek(){
-    if(isEmpty()){ //ìŠ¤íƒì´ ê³µë°±ì¼ ë•Œ
+    if(isEmpty()){ //½ºÅÃÀÌ °ø¹éÀÏ ¶§
         printf("\n\n stack is empty\n");
-        exit(1);
+        exit(1); //OS¿¡ ½ÇÆĞ ½ÅÈ£¸¦ º¸³¿--->OS°¡ ¾ø´Â MCU¿¡¼­ »ç¿ë ºÒ°¡
     }else{
-        return stack[top--]; //í˜„ì¬ topì˜ ì›ì†Œë¥¼ ì‚­ì œí•œ í›„ top ê°ì†Œ
+        return stack[top--]; //ÇöÀç topÀÇ ¿ø¼Ò¸¦ »èÁ¦ÇÑ ÈÄ top °¨¼Ò
     }
 }
 
-//ìŠ¤íƒì˜ ì›ì†Œë¥¼ ì¶œë ¥í•˜ëŠ” ì—°ì‚°
+//½ºÅÃÀÇ ¿ø¼Ò¸¦ Ãâ·ÂÇÏ´Â ¿¬»ê
 static void printStack(){
     int i;
     printf("\n STACK[ ");
@@ -72,17 +72,19 @@ int main(){
 
     element item;
     printStack();
-    push(1); printStack(); // 1 ì‚½ì…
-    push(2); printStack(); // 2 ì‚½ì…
-    push(3); printStack(); // 3 ì‚½ì…
+    push(1); printStack(); // 1 »ğÀÔ
+    push(2); printStack(); // 2 »ğÀÔ
+    push(3); printStack(); // 3 »ğÀÔ
     
-    item =peek(); printStack(); // í˜„ì¬ top ì›ì†Œ ì¶œë ¥
-    printf("peek => %d", item);
+    item =peek(); printStack(); // ÇöÀç top ¿ø¼Ò Ãâ·Â
+    printf("peek => %d\n", item);
 
-    item=pop(); printStack();// top ì›ì†Œ ì‚­ì œ
-    printf("\t pop => %d", item);
+    printf("top ¿ø¼Ò »èÁ¦");
+    item=pop(); printStack();// top ¿ø¼Ò »èÁ¦
+    printf("\t pop => %d\n", item);
 
-    item=pop(); printStack();// top ì›ì†Œ ì‚­ì œ
-    printf("\t pop => %d",item);
+    printf("top ¿ø¼Ò »èÁ¦");
+    item=pop(); printStack();// top ¿ø¼Ò »èÁ¦
+    printf("\t pop => %d\n",item);
     return 0;
 }
