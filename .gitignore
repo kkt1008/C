@@ -1,0 +1,33 @@
+# 빌드 결과물
+*.o
+*.obj
+*.out
+*.elf
+*.bin
+*.hex
+*.map
+*.axf
+*.d
+
+# 실행 파일
+*.exe
+/main
+
+# IDE 설정 파일
+.vscode/
+.idea/
+*.ewp
+*.eww
+*.ewd
+
+# 로그·임시 파일
+*.log
+*.tmp
+*.bak
+*~
+.DS_Store
+
+# 빌드 폴더
+build/
+Debug/
+Release/
