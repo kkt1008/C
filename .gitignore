@@ -31,3 +31,6 @@
 build/
 Debug/
 Release/
+
+# GitHub 설정 파일
+.github/
